@@ -1,0 +1,26 @@
+{
+  "name": "day-night-theme",
+  "version": "1.0.0",
+  "description": "Для корректной работы SASS-компилятора и других инструментов, необходимо один\r раз глобально поставить дополнительные пакеты, выполнив в терминале следующие\r команды. Пользователям MacOS ничего делать не нужно.",
+  "main": "index.js",
+  "dependencies": {
+    "parcel-bundler": "^1.12.4"
+  },
+  "devDependencies": {
+    "parcel-plugin-nuke-dist": "^1.0.1"
+  },
+  "scripts": {
+    "dev": "parcel src/index.html",
+    "build": "parcel build src/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vitamin-JS/goit-js-hw-10-food-service.git"
+  },
+  "author": "Vitaliy Popchenkov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Vitamin-JS/goit-js-hw-10-food-service/issues"
+  },
+  "homepage": "https://github.com/Vitamin-JS/goit-js-hw-10-food-service#readme"
+}
