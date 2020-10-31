@@ -193,6 +193,11 @@ module.hot.accept(reloadCSS);
 "use strict";
 
 require("./styles.css");
+
+var Theme = {
+  LIGHT: 'light-theme',
+  DARK: 'dark-theme'
+};
 },{"./styles.css":"styles.css"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
