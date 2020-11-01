@@ -13,23 +13,42 @@ const Theme = {
     DARK: 'dark-theme',
 };
 
-
-// ------ Page Narkup------------------------------
+// ------ Page Markup-----------------------------------------------------
 const menuMarkup = createMenu(menuElement);
 
-function createMenu(menuElement) {
-    return menuElement.map(menuTemplate).join('');
-
-};
 
 refs.menu.insertAdjacentHTML('beforeend', menuMarkup);
 refs.body.classList.add(Theme.LIGHT);
 
-// ----- Switch click-------------------------------
+// ----- Logic-----------------------------------------------------
 
 refs.switch.addEventListener("change", onThemeChange);
+refs.switch.addEventListener("change", setLocalStorage);
+document.addEventListener('DOMContentLoaded', getThemeLocalStorage);
+
+// ------  Functions   ---------------------------------------------------
+
+function createMenu(menuElement) {
+    return menuElement.map(menuTemplate).join('');
+};
 
 function onThemeChange() {
     refs.body.classList.toggle(Theme.DARK);
+}
 
+function setLocalStorage() {
+    const checkedTheme = refs.switch.checked;
+
+    if (checkedTheme) { localStorage.setItem('theme', Theme.DARK) } else {
+        localStorage.removeItem('theme');
+        localStorage.setItem('theme', Theme.LIGHT)
+    }
+}
+
+function getThemeLocalStorage() {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === Theme.DARK) {
+        refs.body.classList.add(Theme.DARK);
+        refs.switch.checked = true;
+    }
 }

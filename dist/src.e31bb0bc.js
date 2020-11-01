@@ -2408,22 +2408,44 @@ var refs = {
 var Theme = {
   LIGHT: 'light-theme',
   DARK: 'dark-theme'
-}; // ------ Page Narkup------------------------------
+}; // ------ Page Markup-----------------------------------------------------
 
 var menuMarkup = createMenu(_menu.default);
+refs.menu.insertAdjacentHTML('beforeend', menuMarkup);
+refs.body.classList.add(Theme.LIGHT); // ----- Logic-----------------------------------------------------
+
+refs.switch.addEventListener("change", onThemeChange);
+refs.switch.addEventListener("change", setLocalStorage);
+document.addEventListener('DOMContentLoaded', getThemeLocalStorage); // ------  Functions   ---------------------------------------------------
 
 function createMenu(menuElement) {
   return menuElement.map(_template.default).join('');
 }
 
 ;
-refs.menu.insertAdjacentHTML('beforeend', menuMarkup);
-refs.body.classList.add(Theme.LIGHT); // ----- Switch click-------------------------------
-
-refs.switch.addEventListener("change", onThemeChange);
 
 function onThemeChange() {
   refs.body.classList.toggle(Theme.DARK);
+}
+
+function setLocalStorage() {
+  var checkedTheme = refs.switch.checked;
+
+  if (checkedTheme) {
+    localStorage.setItem('theme', Theme.DARK);
+  } else {
+    localStorage.removeItem('theme');
+    localStorage.setItem('theme', Theme.LIGHT);
+  }
+}
+
+function getThemeLocalStorage() {
+  var savedTheme = localStorage.getItem('theme');
+
+  if (savedTheme === Theme.DARK) {
+    refs.body.classList.add(Theme.DARK);
+    refs.switch.checked = true;
+  }
 }
 },{"./styles.css":"styles.css","./template.hbs":"template.hbs","./menu.json":"menu.json"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
