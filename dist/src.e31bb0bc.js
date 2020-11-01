@@ -2401,7 +2401,9 @@ var _menu = _interopRequireDefault(require("./menu.json"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var refs = {
-  menu: document.querySelector('.js-menu')
+  menu: document.querySelector('.js-menu'),
+  switch: document.querySelector('#theme-switch-toggle'),
+  body: document.querySelector('body')
 };
 var Theme = {
   LIGHT: 'light-theme',
@@ -2416,6 +2418,13 @@ function createMenu(menuElement) {
 
 ;
 refs.menu.insertAdjacentHTML('beforeend', menuMarkup);
+refs.body.classList.add(Theme.LIGHT); // ----- Switch click-------------------------------
+
+refs.switch.addEventListener("change", onThemeChange);
+
+function onThemeChange() {
+  refs.body.classList.toggle(Theme.DARK);
+}
 },{"./styles.css":"styles.css","./template.hbs":"template.hbs","./menu.json":"menu.json"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
