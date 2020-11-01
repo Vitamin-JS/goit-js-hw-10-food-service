@@ -16,11 +16,10 @@ const Theme = {
 // ------ Page Markup-----------------------------------------------------
 const menuMarkup = createMenu(menuElement);
 
-
 refs.menu.insertAdjacentHTML('beforeend', menuMarkup);
 refs.body.classList.add(Theme.LIGHT);
 
-// ----- Logic-----------------------------------------------------
+// ----- Change Theme & LocalStorage--------------------------------------
 
 refs.switch.addEventListener("change", onThemeChange);
 refs.switch.addEventListener("change", setLocalStorage);

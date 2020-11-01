@@ -4,6 +4,7 @@
   "description": "Для корректной работы SASS-компилятора и других инструментов, необходимо один\r раз глобально поставить дополнительные пакеты, выполнив в терминале следующие\r команды. Пользователям MacOS ничего делать не нужно.",
   "main": "index.js",
   "dependencies": {
+    "gh-pages": "^3.1.0",
     "parcel-bundler": "^1.12.4"
   },
   "devDependencies": {
@@ -12,7 +13,9 @@
   },
   "scripts": {
     "dev": "parcel src/index.html",
-    "build": "parcel build src/index.html"
+    "build": "parcel build src/index.html --public-url /goit-js-hw-10-food-service/",
+    "deploy": "gh-pages -d dist",
+    "predeploy": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -23,5 +26,5 @@
   "bugs": {
     "url": "https://github.com/Vitamin-JS/goit-js-hw-10-food-service/issues"
   },
-  "homepage": "https://github.com/Vitamin-JS/goit-js-hw-10-food-service#readme"
+  "homepage": "https://Vitamin-JS.github.io/goit-js-hw-10-food-service"
 }
